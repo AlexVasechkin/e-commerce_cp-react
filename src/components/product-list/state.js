@@ -41,9 +41,12 @@ class ProductListState {
 
     constructor() {
       makeAutoObservable(this);
+    }
+
+    init() {
       this.reloadVendors();
       this.reloadProducts();
-    }
+    };
 }
 
 const productListStateInstance = new ProductListState();

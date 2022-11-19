@@ -36,6 +36,7 @@ const ProductList = observer(() => {
 const renderProductList = () => {
     const root = document.getElementById('product-list-root');
     if (root !== null) {
+        productListStateInstance.init();
         ReactDOM.render(<ProductList />, root);
     }
 };
