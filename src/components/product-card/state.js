@@ -18,8 +18,6 @@ class ProductCardState {
 
     constructor() {
         makeAutoObservable(this)
-
-        this.reloadVendorsDict();
     }
 
     reloadVendorsDict() {
@@ -34,6 +32,10 @@ class ProductCardState {
                     };
                 });
             });
+    }
+
+    init() {
+        this.reloadVendorsDict();
     }
 }
 
