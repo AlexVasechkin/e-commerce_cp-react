@@ -78,6 +78,7 @@ const ProductCard = observer(() => {
 const renderProductCard = () => {
     const root = document.getElementById('product-card-root');
     if (root !== null) {
+        productCardStateInstance.init();
         ReactDOM.render(<ProductCard />, root);
     }
 };
