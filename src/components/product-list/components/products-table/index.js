@@ -1,31 +1,25 @@
 import React from 'react';
 import ProductsTableRow from './components/products-table-row';
+import DataTable from '../../../common/data-table';
 
 
 const ProductsTable = ({
     products = () => []
 }) => {
 
-    return <div className="table-responsive">
-        <table className="table table-borderless">
-        <thead>
-            <tr>
-            <th>ID</th>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            { products.map(item => {
+    const getHead = () => <>
+        <td>ID</td>
+        <td>Артикул</td>
+        <td>Название</td>
+        <td>Действия</td>
+    </>;
 
-                const { id = '' } = item;
+    const getBody = () => products.map(item => {
+        const { id = '' } = item;
+        return <ProductsTableRow key={ `ptr${ id }` } item={ item } />
+    })
 
-                return <ProductsTableRow key={ `ptr${ id }` } item={ item } />
-            }) }
-        </tbody>
-        </table>
-    </div>
+    return <DataTable getHead={ getHead } getBody={ getBody } />
 };
 
 export default ProductsTable;
