@@ -4,6 +4,7 @@ import productListStateInstance from "./state";
 import ProductsTable from "./components/products-table";
 import ReactDOM from 'react-dom';
 import CreateProductModalForProductList from './components/create-product-modal';
+import {Spinner} from 'react-bootstrap';
 
 
 const ProductList = observer(() => {
@@ -25,7 +26,7 @@ const ProductList = observer(() => {
                     </div>
 
                     <div>
-                        <ProductsTable products={ productListStateInstance.products } />
+                        { productListStateInstance.isAwait ? <div className="text-center"><Spinner animation={'border'} /></div> : <ProductsTable products={ productListStateInstance.products } /> }
                     </div>
                 </div>
             </div>
