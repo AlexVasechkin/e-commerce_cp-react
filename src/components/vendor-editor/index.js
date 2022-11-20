@@ -24,7 +24,7 @@ const VendorEditor = observer(() => {
           <div className="text-right m-b-15">
             <VendorEditorCreateVendorModal />
           </div>
-
+          <hr/>
           <div>
             { vendorEditorStateInstance.isAwait ? <Spinner animation={ 'border' } /> : <VendorTable dataSet={ vendorEditorStateInstance.dataSet } /> }
           </div>
