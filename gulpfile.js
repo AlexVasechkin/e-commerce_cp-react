@@ -33,6 +33,7 @@ gulp.task('build-dev', () => gulp
         }
     }))
     .pipe(gulp.dest(buildPath))
+    .pipe(gulp.dest('./build/js'))
 );
 
 gulp.task('dev', () => {
