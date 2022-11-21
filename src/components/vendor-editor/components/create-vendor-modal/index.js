@@ -4,7 +4,7 @@ import vendorEditorStateInstance from '../../state';
 
 
 const VendorEditorCreateVendorModal = () => {
-  return <CreateVendorModal btnClasses={ 'btn btn-outline-success' }
+  return <CreateVendorModal btnClasses={ 'btn btn-outline-success ml-auto' }
                             onSuccess={ () => vendorEditorStateInstance.reloadDataSet() }
   />
 };

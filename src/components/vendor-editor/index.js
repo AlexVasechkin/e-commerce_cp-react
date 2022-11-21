@@ -8,6 +8,7 @@ import {Spinner} from 'react-bootstrap';
 
 
 const VendorEditor = observer(() => {
+  console.log(vendorEditorStateInstance.dataSet)
 
   return <div className="row">
     <div className="col-lg-12">
@@ -20,13 +21,23 @@ const VendorEditor = observer(() => {
           </div>
         </div>
 
-        <div className="card-body">
-          <div className="text-right m-b-15">
-            <VendorEditorCreateVendorModal />
-          </div>
-          <hr/>
-          <div>
-            { vendorEditorStateInstance.isAwait ? <Spinner animation={ 'border' } /> : <VendorTable dataSet={ vendorEditorStateInstance.dataSet } /> }
+        <div className="card-body d-flex flex-column">
+          <VendorEditorCreateVendorModal />
+
+          <div className="card-body-inner d-flex">
+            {vendorEditorStateInstance.isAwait
+              ? <Spinner animation={ 'border' } />
+              : <>
+                <div className="card-body-table col-sm-9">
+                  <div className="text-right m-b-15">
+                    <VendorTable dataSet={ vendorEditorStateInstance.dataSet } />
+                  </div>
+                </div>
+
+                <div className="card-body-tree col-sm-2">
+                  test
+                </div>
+              </>}
           </div>
 
         </div>
