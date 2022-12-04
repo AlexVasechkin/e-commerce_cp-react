@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from 'mobx-react-lite';
 import propertyEditorStateInstance from './state';
-import { Tabs, Tab } from 'react-bootstrap';
+import {Tabs, Tab, Spinner} from 'react-bootstrap';
 
 
 const PropertyEditor = observer(() => {
@@ -12,7 +12,7 @@ const PropertyEditor = observer(() => {
     onChange = () => {},
     onBlur = () => {},
     label = ''
-  }) => <div className="col-12 col-sm-4" key={ `pc-${ propertyId }` }>
+  }) => <div className="col-12 col-sm-6 m-t-15" key={ `pc-${ propertyId }` }>
     <div className="form-group">
       <label>{ label }</label>
       <input type="number"
@@ -31,7 +31,7 @@ const PropertyEditor = observer(() => {
     onChange = () => {},
     onBlur = () => {},
     label = ''
-  }) => <div className="col-12 col-sm-4" key={ `pc-${ propertyId }` }>
+  }) => <div className="col-12 col-sm-6 m-t-15" key={ `pc-${ propertyId }` }>
       <div className="form-group">
         <label>{ label }</label>
         <input type="number"
@@ -51,7 +51,7 @@ const PropertyEditor = observer(() => {
     onChange = () => {},
     onBlur = () => {},
     label = ''
-  }) => <div className="col-12 col-sm-4" key={ `pc-${ propertyId }` }>
+  }) => <div className="col-12 col-sm-6 m-t-15" key={ `pc-${ propertyId }` }>
     <div className="form-group">
       <label>{ label }</label>
       <input type="text"
@@ -68,7 +68,7 @@ const PropertyEditor = observer(() => {
     value = null,
     onChange = () => {},
     label = ''
-  }) => <div className="col-12 col-sm-4" key={ `pc-${ propertyId }` }>
+  }) => <div className="col-12 col-sm-6 m-t-15" key={ `pc-${ propertyId }` }>
     <div className="form-group">
       <label>{ label }</label>
       <select onChange={ onChange } value={ value } className="form-control">
@@ -179,7 +179,7 @@ const PropertyEditor = observer(() => {
     }
   });
 
-  return <>{ renderTabs(getCategories()) }</>;
+  return <>{ propertyEditorStateInstance.isAwait ? <Spinner animation={ 'border' } /> : renderTabs(getCategories()) }</>;
 });
 
 export default PropertyEditor;

@@ -5,20 +5,23 @@ const ProductsTableRow = ({
     item = {
         id: '',
         code: '',
-        name: ''
+        name: '',
+        count: 0
     }
 }) => {
 
     const {
         id = '',
         code = '',
-        name = ''
+        name = '',
+        count = null
     } = item;
 
     return <tr>
         <th scope="row">{ `${ id }` }</th>
         <td>{ `${ code }` }</td>
         <td>{ `${ name }` }</td>
+        <td>{ `${ count ?? '' }` }</td>
         <td>
             <div className="button-list">
                 <a href={ `/control-panel/product-card?id=${ id }` }

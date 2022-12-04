@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {Modal} from 'react-bootstrap';
-import CreatePropertyForm from './create-property-form';
+import CreateCategoryPropertyForm from './create-category-property-form';
 
 
-const CreatePropertyModal = ({
+const CreateCategoryPropertyModal = ({
   btnClasses = '',
   onSuccess = id => {},
-  buttonCaption = 'Добавить'
+  categories = [],
+  properties = []
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -15,7 +16,7 @@ const CreatePropertyModal = ({
 
   return <>
     <button className={ btnClasses }
-            onClick={ show } ><i className="fa fa-plus" /> { buttonCaption }</button>
+            onClick={ show } ><i className="fa fa-plus" /> Добавить</button>
 
     <Modal show={ visible }
            onHide={close}>
@@ -24,11 +25,14 @@ const CreatePropertyModal = ({
       </Modal.Header>
 
       <Modal.Body>
-        <CreatePropertyForm onSuccess={ onSuccess } />
+        <CreateCategoryPropertyForm categories={ categories }
+                                    properties={ properties }
+                                    onSuccess={ onSuccess }
+        />
       </Modal.Body>
 
     </Modal>
   </>
 };
 
-export default CreatePropertyModal;
+export default CreateCategoryPropertyModal;
