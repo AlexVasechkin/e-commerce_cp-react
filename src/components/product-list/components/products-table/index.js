@@ -11,6 +11,7 @@ const ProductsTable = ({
         <td>ID</td>
         <td>Артикул</td>
         <td>Название</td>
+        <td>Количество</td>
         <td>Действия</td>
     </>;
 

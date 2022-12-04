@@ -7,6 +7,8 @@ import productCardStateInstance from "./state";
 import ProductImageEditor from './components/product-image-editor';
 import CreateProductImageModal from './components/create-product-image-modal';
 import PropertyEditor from './components/property-editor';
+import ProductCardProductCategoryEditor from './components/product-category-editor';
+import ProductPageEditor from './components/product-page-editor';
 
 
 const ProductCard = observer(() => {
@@ -52,6 +54,8 @@ const ProductCard = observer(() => {
                     </div>
 
                     <div className="card-body">
+                        <ProductCardProductCategoryEditor options={ productCardStateInstance.productCategories } />
+                        <hr/>
                         <UpdateProductForm />
                     </div>
 
@@ -66,6 +70,19 @@ const ProductCard = observer(() => {
 
                     <div className="card-body">
                         <PropertyEditor />
+                    </div>
+
+                </div>
+            </div>
+
+            <div className="col-sm-3 col-12">
+                <div className="card m-b-30">
+                    <div className="card-header">
+                        <h5 className="card-title">Страница товара</h5>
+                    </div>
+
+                    <div className="card-body">
+                        <ProductPageEditor />
                     </div>
 
                 </div>
