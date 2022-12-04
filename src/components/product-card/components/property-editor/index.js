@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from 'mobx-react-lite';
 import propertyEditorStateInstance from './state';
-import { Tabs, Tab } from 'react-bootstrap';
+import {Tabs, Tab, Spinner} from 'react-bootstrap';
 
 
 const PropertyEditor = observer(() => {
@@ -179,7 +179,7 @@ const PropertyEditor = observer(() => {
     }
   });
 
-  return <>{ renderTabs(getCategories()) }</>;
+  return <>{ propertyEditorStateInstance.isAwait ? <Spinner animation={ 'border' } /> : renderTabs(getCategories()) }</>;
 });
 
 export default PropertyEditor;

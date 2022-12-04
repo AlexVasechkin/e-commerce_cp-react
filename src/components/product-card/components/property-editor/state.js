@@ -16,6 +16,8 @@ class PropertyEditorState {
 
   reloadProperties() {
     if (this.id) {
+      this.isAwait = true;
+
       axios
         .get(`/api/v1/private/product-property-values/${ this.id }`)
         .then(({ data = {} }) => {
@@ -28,7 +30,12 @@ class PropertyEditorState {
 
   save({ productId = 0, propertyId = 0, value = null }) {
     axios
-      .post('/api/v1/private/product-property-value/save', { productId, propertyId, value });
+      .post('/api/v1/private/product-property-value/save', {
+        productId,
+        propertyId,
+        value
+      })
+    ;
   }
 }
 
