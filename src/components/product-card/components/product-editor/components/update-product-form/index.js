@@ -43,6 +43,16 @@ const UpdateProductForm = observer(() => {
         </div>
 
         <div className="form-group">
+            <label>Количество</label>
+            <input type="number"
+                   disabled={updateProductFormStateInstance.isAwait}
+                   className="form-control"
+                   value={ updateProductFormStateInstance.formData.count }
+                   onChange={ e => updateProductFormStateInstance.formData.count = parseInt(e.target.value) }
+                   />
+        </div>
+
+        <div className="form-group">
             <label>Длинна, мм</label>
             <input type="number"
                    disabled={updateProductFormStateInstance.isAwait}
