@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import ProductCategoryEditorCreateCategoryPageModal from '../../create-category-page-modal';
+import ProductCategoryEditorUpdateCategoryPageModal from '../../update-category-page-modal';
 
 
 const ProductCategoryTableRow = ({
@@ -8,7 +10,8 @@ const ProductCategoryTableRow = ({
     id: 0,
     name: '',
     parentId: 0,
-    isActive: false
+    isActive: false,
+    webpageId: null
   },
   productCategoryDict = [],
   updateDsRow = (id, data) => {}
@@ -80,6 +83,11 @@ const ProductCategoryTableRow = ({
                onChange={ () => null }
         /> Активно
       </label>
+    </td>
+    <td>{   row.webpageId
+          ? <ProductCategoryEditorUpdateCategoryPageModal id={ row.webpageId } />
+          : <ProductCategoryEditorCreateCategoryPageModal categoryId={ id } />
+        }
     </td>
     <td>
       <div className="btn-group">

@@ -5,7 +5,8 @@ import CreateProductForm from './components/create-product-form';
 
 const CreateProductModal = ({
     getVendors = () => [],
-    btnClasses = ''
+    btnClasses = '',
+    onSuccess = id => null
 }) => {
     const [visible, setVisible] = useState(false);
 
@@ -23,7 +24,7 @@ const CreateProductModal = ({
             </Modal.Header>
 
             <Modal.Body>
-                <CreateProductForm getVendors={ getVendors }  />
+                <CreateProductForm getVendors={ getVendors } onSuccess={ onSuccess }  />
             </Modal.Body>
 
         </Modal>

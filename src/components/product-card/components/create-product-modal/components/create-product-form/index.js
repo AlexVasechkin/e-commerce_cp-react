@@ -4,7 +4,8 @@ import axios from 'axios';
 
 
 const CreateProductForm = ({
-    getVendors = () => []
+    getVendors = () => [],
+    onSuccess = id => null
 }) => {
 
     const [isAwait, setIsAwait] = useState(false);
@@ -30,6 +31,7 @@ const CreateProductForm = ({
                 setId(id);
                 setCode('');
                 setVendorId(null);
+                onSuccess(id);
             })
             .finally(() => setIsAwait(false))
     };

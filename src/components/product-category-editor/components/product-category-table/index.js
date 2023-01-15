@@ -12,6 +12,7 @@ const ProductCategoryTable = ({
     <td>Родитель</td>
     <td>Категория</td>
     <td>Активно</td>
+    <td>Страница</td>
     <td>Действия</td>
   </>;
 

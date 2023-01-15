@@ -11,6 +11,8 @@ class UpdateProductFormState {
         code: '',
         vendorId: null,
         name: '',
+        count: 0,
+        price: 0,
         length: 0,
         width: 0,
         height: 0,

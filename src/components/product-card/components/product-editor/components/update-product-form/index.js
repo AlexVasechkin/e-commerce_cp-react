@@ -43,6 +43,16 @@ const UpdateProductForm = observer(() => {
         </div>
 
         <div className="form-group">
+            <label>Цена</label>
+            <input type="number"
+                   disabled={updateProductFormStateInstance.isAwait}
+                   className="form-control"
+                   value={ updateProductFormStateInstance.formData.price }
+                   onChange={ e => updateProductFormStateInstance.formData.price = parseInt(e.target.value) }
+                   />
+        </div>
+
+        <div className="form-group">
             <label>Количество</label>
             <input type="number"
                    disabled={updateProductFormStateInstance.isAwait}

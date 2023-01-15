@@ -4,7 +4,11 @@ import productListStateInstance from '../../state';
 
 
 const CreateProductModalForProductList = () => {
-  return <CreateProductModal getVendors={ () => productListStateInstance.vendors } btnClasses={ 'btn btn-outline-info' } />
+  return <CreateProductModal getVendors={ () => productListStateInstance.vendors }
+                             btnClasses={ 'btn btn-outline-info' }
+                             onSuccess={ () => productListStateInstance.reloadProducts() }
+
+  />;
 };
 
 export default CreateProductModalForProductList;
